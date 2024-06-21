@@ -14,6 +14,7 @@ for word in split_user_command: #iterate the words from the user's response
     if word.lower() in commands: #check if the current word from the iteration is in the commands list
         ###TASK 2###
         if word.lower() == commands[1]: # test if the command statement contains issue for Task 2
+            command_exists = True #set command flag to True
             issue_exists = False #Flag in case user input doesn't contain a known issue category
             user_issue = input(responses[1]) #get the issue category of the user's issue
             user_response = user_issue.split() #split the user's response to make it easier to iterate
@@ -26,7 +27,8 @@ for word in split_user_command: #iterate the words from the user's response
             if not issue_exists: #check if an issue category was found
                 print("I'm sorry, I didn't understand what issue you were describing") #message to let the user know that there was not issue category in their response
         ### END TASK 2###
-        print(responses[commands.index[word]]) #print the response for the command in the user's response
+        print(responses[commands.index(word)]) #print the response for the command in the user's response
+        command_exists = True #set command flag to True
     else: #no command in this iteration
         continue #continue iteration
 if not command_exists: #check if no command was in the response
