@@ -1,11 +1,11 @@
-def pos_neg_tally(review): #define function that tallies positive and negative words for Task 2
+def pos_neg_tally(review, pos_words, neg_words): #define function that tallies positive and negative words for Task 2
     pos_count = 0 #initialize the positive word tally
     neg_count = 0 #initialize the negative word tally
 
-    for current_pos_word in positive_words: #iterate the positive words
+    for current_pos_word in pos_words: #iterate the positive words
         pos_count += 1 if review.lower().find(current_pos_word) != -1 else 0 #increment the tally if the positive word can be found in the review
         
-    for current_neg_word in negative_words: #iterate the negative words list
+    for current_neg_word in neg_words: #iterate the negative words list
         neg_count += 1 if review.lower().find(current_neg_word) != -1 else 0 #increment the tally if the negative word can be found in the review
     
     return [pos_count, neg_count] #return list of tallies
@@ -37,7 +37,7 @@ positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb"
 negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"] #list of negative words 
 
 for review in reviews: #iterate throught the reviews
-    tallies = pos_neg_tally(review) #store the tallies from the tallying function
+    tallies = pos_neg_tally(review, positive_words, negative_words) #store the tallies from the tallying function
     print(f"Positive Words: {tallies[0]}\tNegative Words: {tallies[1]}") #print the tallies of the positive and negative words
     print("\n") #print empty line to make next task easier to diffentiate
 
